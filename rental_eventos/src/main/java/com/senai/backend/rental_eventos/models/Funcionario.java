@@ -1,5 +1,6 @@
 package com.senai.backend.rental_eventos.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -34,8 +35,76 @@ public class Funcionario {
     @Column(name="cargo")
     private String cargo;
 
-    @OneToMany(mappedBy = "funcionarioResponsavel")
-    private List<Equipamentos> equipamentos;
+     @OneToMany(mappedBy = "responsavel")
+    private List<Equipamentos> equipamentos = new ArrayList<>();
+
+    public Funcionario() {
+    }
+
+    public Funcionario(String cargo, String cpf, String dataNascimento, Integer id, String name, int senha) {
+        this.cargo = cargo;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.id = id;
+        this.name = name;
+        this.senha = senha;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public int getSenha() {
+        return senha;
+    }
+
+    public void setSenha(int senha) {
+        this.senha = senha;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public List<Equipamentos> getEquipamentos() {
+        return equipamentos;
+    }
+
+    public void setEquipamentos(List<Equipamentos> equipamentos) {
+        this.equipamentos = equipamentos;
+    }
 
 
 }
